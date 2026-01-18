@@ -37,3 +37,5 @@ D:\repos\github\UmBuster\UmBuster\obj\Release\net10.0-windows\refint\UmBuster.dl
 D:\repos\github\UmBuster\UmBuster\obj\Release\net10.0-windows\UmBuster.pdb
 D:\repos\github\UmBuster\UmBuster\obj\Release\net10.0-windows\UmBuster.genruntimeconfig.cache
 D:\repos\github\UmBuster\UmBuster\obj\Release\net10.0-windows\ref\UmBuster.dll
+D:\repos\github\UmBuster\UmBuster\obj\Release\net10.0-windows\Views\FlashWindow.baml
+D:\repos\github\UmBuster\UmBuster\obj\Release\net10.0-windows\Views\FlashWindow.g.cs

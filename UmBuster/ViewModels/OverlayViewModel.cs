@@ -148,12 +148,15 @@ public partial class OverlayViewModel : ObservableObject, IDisposable
         Debug.WriteLine($"Recognized: {text}");
     }
 
+    public event EventHandler? FillerDetected; // Added public event
+
     private void OnFillerDetected(object? sender, Models.FillerWordEvent e)
     {
         Application.Current.Dispatcher.Invoke(() =>
         {
             FillerCount++;
             LastFillerWord = e.Word;
+            FillerDetected?.Invoke(this, EventArgs.Empty); // Raise event
             
             // Optional: Reset last word after a few seconds?
         });
