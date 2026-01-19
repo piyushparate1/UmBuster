@@ -56,7 +56,7 @@ public partial class OverlayViewModel : ObservableObject, IDisposable
 
                 if (!Directory.Exists(modelPath))
                 {
-                    Application.Current.Dispatcher.Invoke(() => StatusMessage = "Downloading Model...");
+                    System.Windows.Application.Current.Dispatcher.Invoke(() => StatusMessage = "Downloading Model...");
                     var zipPath = Path.Combine(appData, modelName + ".zip");
                     var url = "https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip";
 
@@ -66,15 +66,15 @@ public partial class OverlayViewModel : ObservableObject, IDisposable
                         await File.WriteAllBytesAsync(zipPath, bytes);
                     }
 
-                    Application.Current.Dispatcher.Invoke(() => StatusMessage = "Extracting...");
+                    System.Windows.Application.Current.Dispatcher.Invoke(() => StatusMessage = "Extracting...");
                     System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, appData);
                     File.Delete(zipPath);
                 }
 
-                Application.Current.Dispatcher.Invoke(() => StatusMessage = "Loading Engine...");
+                System.Windows.Application.Current.Dispatcher.Invoke(() => StatusMessage = "Loading Engine...");
                 _speechService.Initialize(modelPath);
                 
-                Application.Current.Dispatcher.Invoke(() => 
+                System.Windows.Application.Current.Dispatcher.Invoke(() => 
                 {
                     StatusMessage = "Ready";
                     Start();
@@ -82,7 +82,7 @@ public partial class OverlayViewModel : ObservableObject, IDisposable
             }
             catch (Exception ex)
             {
-                Application.Current.Dispatcher.Invoke(() => StatusMessage = "Model Error");
+                System.Windows.Application.Current.Dispatcher.Invoke(() => StatusMessage = "Model Error");
                 Debug.WriteLine($"Init error: {ex}");
             }
         });
@@ -152,7 +152,7 @@ public partial class OverlayViewModel : ObservableObject, IDisposable
 
     private void OnFillerDetected(object? sender, Models.FillerWordEvent e)
     {
-        Application.Current.Dispatcher.Invoke(() =>
+        System.Windows.Application.Current.Dispatcher.Invoke(() =>
         {
             FillerCount++;
             LastFillerWord = e.Word;

@@ -23,7 +23,7 @@ public partial class SettingsWindow : Window
         Close();
     }
 
-    private void NewWordBox_KeyDown(object sender, KeyEventArgs e)
+    private void NewWordBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
         {

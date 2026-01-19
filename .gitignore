@@ -44,3 +44,6 @@ Generated\ Files/
 # We download these to LocalAppData in code, but just in case they land here
 **/Models/vosk-model*
 *.zip
+
+# Other
+build_log.txt
